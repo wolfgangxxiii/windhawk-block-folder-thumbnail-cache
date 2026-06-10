@@ -36,7 +36,7 @@ This mod tries to prevent that behavior.
 
 ## Resource Redirect compatibility
 
-This mod can be used as a companion mod for users of the Windhawk Resource Redirect mod and icon packs such as `resource-redirect-icon-themes`.
+This mod can be used as a companion mod for users of the Windhawk Resource Redirect mod and icon packs such as `icon-resource-redirect`.
 
 Resource Redirect can replace normal Windows folder icons by redirecting system icon resources. However, folders that contain images, videos, or other media may still display generated folder preview thumbnails instead of the themed folder icon.
 
