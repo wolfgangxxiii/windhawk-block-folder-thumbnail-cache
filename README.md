@@ -54,7 +54,7 @@ Optional:
 
 - Resource Redirect
 - Custom Windows icon theme
-- `resource-redirect-icon-themes` or another icon replacement method
+- `icon-resource-redirect` or another icon replacement method
 
 ## Compatibility
 
