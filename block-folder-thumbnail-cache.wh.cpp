@@ -3,7 +3,7 @@
 // @name            Block Folder Thumbnail Cache
 // @description     Prevents File Explorer from generating preview thumbnails for folders, while preserving file thumbnails and themed folder icons.
 // @version         0.1
-// @author          Szymon
+// @author          Szymon Bławat wolfgangxxiii
 // @include         explorer.exe
 // @compilerOptions -lole32 -lshell32 -lshlwapi
 // @license         MIT
