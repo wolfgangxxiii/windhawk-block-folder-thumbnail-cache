@@ -13,38 +13,56 @@
 /*
 # Block Folder Thumbnail Cache
 
-This mod prevents Windows File Explorer from generating thumbnail previews for folders,
-while keeping normal thumbnails enabled for files such as images, videos, PDFs, and other supported formats.
+This mod prevents Windows File Explorer from generating preview thumbnails for folders, while keeping normal file thumbnails enabled.
 
-## Purpose
+It is intended for users who want folders to always display their normal themed icons, instead of generated preview thumbnails based on the folder contents.
 
-Windows 11 uses folder preview thumbnails for directories that contain images or other media files.
-This can interfere with custom icon themes, icon replacement tools, and visual consistency,
-because media folders may display generated preview thumbnails instead of the normal themed folder icon.
+## What problem does it solve?
 
-This mod is designed to:
+Windows 11 can generate preview thumbnails for folders that contain images, videos, or other media files.
 
-- keep file thumbnails enabled,
-- block generated thumbnail previews for folders,
-- preserve normal folder icons from the current Windows icon theme,
-- avoid forcing a specific folder icon such as the default yellow Windows folder,
-- remove the old `Logo` registry workaround if enabled in settings.
+For example, a folder containing pictures may show a folder-preview thumbnail instead of the normal folder icon. This can break the visual consistency of custom icon themes, especially when using tools such as Resource Redirect or other icon replacement methods.
+
+This mod tries to prevent that behavior.
+
+## Features
+
+- Keeps thumbnails enabled for files such as images, videos, PDFs, and other supported formats.
+- Blocks generated thumbnail previews for folders.
+- Preserves normal folder icons from the current Windows icon theme.
+- Does not force a specific folder icon, such as the default yellow Windows folder.
+- Can remove the old `Logo` registry workaround if enabled in settings.
+- Can clear the File Explorer thumbnail and icon cache once after installation or update.
+
+## Resource Redirect compatibility
+
+This mod can be used as a companion mod for users of the Windhawk Resource Redirect mod and icon packs such as `resource-redirect-icon-themes`.
+
+Resource Redirect can replace normal Windows folder icons by redirecting system icon resources. However, folders that contain images, videos, or other media may still display generated folder preview thumbnails instead of the themed folder icon.
+
+This mod complements Resource Redirect by blocking folder thumbnail generation, so themed folder icons are more likely to remain visible.
+
+This is not an official add-on for Resource Redirect. It is an independent Windhawk mod.
 
 ## How it works
 
 The mod hooks `CoCreateInstance` and wraps the `IThumbnailCache` interface used by File Explorer.
+
 When Explorer requests a thumbnail for a folder, the mod blocks that request.
+
 For regular files, the original thumbnail behavior is left untouched.
 
-As a result, folders should fall back to their normal icon, while files continue to show thumbnails.
+As a result:
 
-## Notes
+- folders should fall back to their normal themed icons,
+- files should continue to show thumbnails normally.
 
-This mod is experimental.
-File Explorer uses several internal paths for icons, thumbnails, and cached folder previews,
-so some cached folder thumbnails may remain visible until the thumbnail/icon cache is cleared.
+## File picker dialogs
 
-For best results, keep the cache cleanup option enabled after installing or updating the mod.
+By default, the mod targets:
+
+``cpp
+    @include         explorer
 */
 // ==/WindhawkModReadme==
 
